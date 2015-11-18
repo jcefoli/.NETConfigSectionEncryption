@@ -91,7 +91,7 @@ Note two very important attributes:
 * **name** specifies the EncryptionProvider name. It can be anything. Throughout this documentation, I use "RSAEncryptionProvider" This name is passed to the decryption command (see below)
 * **keyContainerName** is the name of the Key Container. It is passed to a few commands that manage Key Containers on the server. Throughout this documentation, I am using "MyContainer".
 
-Here is a complete [example web.config](https://github.com/jcefoli/.NETConfigSectionEncryption/blog/master/scripts/ExampleApp/web.config) used in my interactive demo below.
+Here is a complete [example web.config](https://github.com/jcefoli/.NETConfigSectionEncryption/blob/master/scripts/ExampleApp/web.config) used in my interactive demo below.
 
 ## Encrypting Configuration Section
 Run the following command to encrypt a specific section of your config file. In this example, we are encrypting the appSettings section:
@@ -198,4 +198,4 @@ For more info on the difference between _file_ and _configSource_, check out thi
 Thanks for taking the time to look through this tutorial and I hope it was useful. I'd like to give special thanks to [Alexey](https://github.com/alexeymozgovoy), who took time to understand this and share it with me. Send a pull request if you want to contribute to this documentation. Feel free to reach out:
 
  * [Github](https://github.com/jcefoli)
- * [Twitter](twitter.com/jcefoli)
+ * [Twitter](https://twitter.com/jcefoli)
