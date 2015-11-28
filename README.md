@@ -122,7 +122,7 @@ Note the parameters used above:
 ## Live Demo
 I provided a numbered order of batch scripts and a sample web.config that will walk you through this entire exercise so you can try it on your own. Follow the steps below to see this in action!
 
-Note, since we're using the machine container, you are still able to encrypt/decrypt the file on the local computer. It will not work on another computer until you import that same Key Container.
+Note, since we're using the machine container, you will still be able to encrypt/decrypt the file on the local computer, even if you remove the key. It will not work on another computer until you import that same Key Container.
 
 1. Create a Key Container called "MyContainer"  by running ``/scripts/01_Create_KeyContainer.bat``
 2. Grant your local user permission to the Key Container by running ``/scripts/02_GrantLocalUserPermission.bat``
@@ -176,13 +176,13 @@ Take this example web.config file. Let's see what happens when we encrypt the ap
 
 ```aspnet_regiis.exe -pef appSettings C:\MyApp -prov RSAEncryptionProvider```
 
-Note that because we included the config with _file=_, the contents of ``C:\MyApp\Config\appSettings.config`` will be moved to the web.config and the file _will_ be deleted. When you decrypt this, the appSettings included file will not be recreated and all appSettings Key/value pairs will be in the web.config.
+Note that because we included the config with _file=_, the contents of ``C:\MyApp\Config\appSettings.config`` will be moved to the web.config and the file _will_ be deleted. When you decrypt this, the appSettings included file will not be recreated and all appSettings Key/value pairs will remain in the web.config.
 
 **To encrypt the connStrings section:**
 
 ```aspnet_regiis.exe -pef connStrings C:\MyApp -prov RSAEncryptionProvider```
 
-Note that because we included the config with _configSource=_, the contents of the connStrings section will be moved to the web.config and ``C:\MyApp\Config\ConnectionStrings.config`` will _not_ be deleted. The file itself will be encrypted.
+Note that because we included the config with _configSource=_, the contents of the connStrings section will **NOT** be moved to the web.config and ``C:\MyApp\Config\ConnectionStrings.config`` will _not_ be deleted. The file itself will be encrypted.
 
 For more info on the difference between _file_ and _configSource_, check out this [StackOverflow](http://stackoverflow.com/a/6940086) article.
 
