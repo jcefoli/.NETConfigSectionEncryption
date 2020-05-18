@@ -172,6 +172,8 @@ Take this example web.config file. Let's see what happens when we encrypt the ap
 </configuration>
 ```
 
+*Note: Encryption and decryption of custom configuration sections (i.e, sections you manually defined in the `<configuration><configSections>` of your app config) is *not* supported. While `aspnet_regiis.exe` will report `Succeeded!`, those sections will remain unaltered.*
+
 **To encrypt the appSettings section:**
 
 ```aspnet_regiis.exe -pef appSettings C:\MyApp -prov RSAEncryptionProvider```
